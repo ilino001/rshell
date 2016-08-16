@@ -1,6 +1,8 @@
 # Basic Command rshell in C++
-## About:
-A command shell called rshell in C++. Your shell will perform the following steps:
+##### Collaborators: Tiffany Ceden, Isaac Lino, Nathaniel Song
+## A command shell called rshell in C++. 
+
+It performs with the following steps:
 
   1. Print a command prompt (e.g.  $ )
   2. Read in a command on one line. Commands will have the form:
