@@ -12,7 +12,7 @@ class Or: public Connector {
         // executes right if left cannot 
         //returns true if both have been executed successfully 
         //otherwise returns true 
-        virtual bool execute(int child, int parent) {
+        bool execute(int child, int parent) {
            if (!left->execute(child, parent)) {
                if (right->execute(child, parent)) {
                    return true; 
@@ -21,8 +21,8 @@ class Or: public Connector {
                else {
                    return false; 
                }
-               return true; 
            }
+           return true; 
         }
 }; 
 #endif 
