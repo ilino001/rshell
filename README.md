@@ -25,4 +25,4 @@ There should be no limit to the number of commands that can be chained together 
 
 2. You must have a special built­in command of exit which exits your shell.
 
-3. Anything that appears after a # character should be considered a comment. For example, in the command ls ­lR /, you would execute the program /bin/ls passing into it the parameters ­lR and /. But in the command ls # ­lR /, you would execute /bin/ls, but you would not pass any parameters because they appear in the comment section. You should also note that the # may or may not be followed by a space before the comment begins
+3. Anything that appears after a # character should be considered a comment. For example, in the command ls ­lR /, you would execute the program /bin/ls passing into it the parameters ­lR and /. But in the command ls # ­lR /, you would execute /bin/ls, but you would not pass any parameters because they appear in the comment section. You should also note that the # may or may not be followed by a space before the comment begins. 
