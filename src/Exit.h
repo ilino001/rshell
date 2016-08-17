@@ -4,15 +4,14 @@
 class Exit: public Command {
   
   public:
-    Exit();
-     virtual bool execute(){
-        //execute first
-        //execute second only if first succeeds 
-         
-         
-     }
   
+    //constructor 
+     Exit() {} 
+     
+     //if execute is called, exit 
+     bool execute(int child, int parent){
+         exit(0); 
+     } 
   
-    
 };
 #endif
