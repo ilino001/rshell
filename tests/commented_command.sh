@@ -1,12 +1,9 @@
-echo "testing commented command..."
-echo commands # comments with commands 
-ls -a || echo testing with multiple commands # testing comments on multiple commands
-echo testing... # ls commands
-mkdir # creating empty directory
-mkdir directory # create a directory
-rm -r directory # remove a directory
-echo test1 && echo test2 # echo test with && 
-echo mkdir directory # echo directory
-rm file.cpp # remove 
-echo # commented echo test
-exit
+echo "testing single command..."
+echo word #echo words out
+echo word1 #&& echo words2
+echo words1 && echo words2 #&& echo word
+echo word1 #;  echo words
+echo word2 #&& echo words
+echo word3 #|| echo words
+
+#../bin/rshell < single_command

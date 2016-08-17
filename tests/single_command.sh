@@ -1,9 +1,10 @@
-echo "testing single command..."
-echo word #echo words out
-echo word1 #&& echo words2
-echo words1 && echo words2 #&& echo word
-echo word1 #;  echo words
-echo word2 #&& echo words
-echo word3 #|| echo words
-
-#../bin/rshell < single_command
+echo "testing commented command..."
+echo commands # comments with commands 
+ls -a || echo testing with multiple commands # testing comments on multiple commands
+echo testing... # ls commands
+mkdir directory # create a directory
+rm -rf directory # remove a directory
+echo mkdir directory # echo directory
+touch file.cpp
+rm file.cpp # remove 
+exit
