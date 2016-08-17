@@ -4,22 +4,28 @@
 #include "Connector.h"
 
 class And: public Connector {
-    private:
-
     public:
-        And() {}; 
+        //constructors 
+        And() : Connector() {}; 
+        And(Base* l, Base* r) : Connector(l, r) {} 
         
-        And(Base* l, Base* r) {
-            left = l;
-            right = r;
-        }
-        
-        virtual bool execute() {
-           
-        }
-        
-        void display() {
-            cout << "&&";
-        }
+        //executes right child once left child is completed 
+        //returns true if both children have been executed 
+        //returns false if otherwise 
+        virtual bool execute(int child, int parent) {
+            if (left->execute(child, parent)) {
+                if (right->execute(child, parent)) {
+                    return true; 
+                }
+                
+                else {
+                    return false; 
+                }
+            }
+            
+            else {
+                return false; 
+            }
+        } 
 }; 
 #endif 
