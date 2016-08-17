@@ -9,6 +9,3 @@ echo || mkdir || ls
 ls -R && ps
 ls -a || ls && ls
 exit
-
-
-#../bin/rshell < multi_command
