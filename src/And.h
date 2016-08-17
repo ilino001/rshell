@@ -12,7 +12,7 @@ class And: public Connector {
         //executes right child once left child is completed 
         //returns true if both children have been executed 
         //returns false if otherwise 
-        virtual bool execute(int child, int parent) {
+        bool execute(int child, int parent) {
             if (left->execute(child, parent)) {
                 if (right->execute(child, parent)) {
                     return true; 
