@@ -18,7 +18,7 @@ class Command: public Base {
             command = com;
         }
         
-        //uses fork in system calls 
+        //uses fork in system calls to execute 
         virtual bool execute(int child, int parent) {
             
             pid_t pid = fork();     //creating child process 
@@ -31,7 +31,7 @@ class Command: public Base {
             
             //child process 
             else if (pid == 0){
-                //uses dup2 for 
+                //uses dup2 to determine input of child and parent is executable  
                 if (dup2(child, 0) == -1){
                     perror("ERROR: dup2 failed, cannot continue\n"); 
                     return false;
@@ -47,12 +47,12 @@ class Command: public Base {
             
             //parent process 
             else if (pid > 0) {
-                //waitpid 
                 int verify;
                 
               if (waitpid(pid, &verify, 0) == -1){
                   perror("Waiting...");
-              }  
+              }
+              
               if(WEXITSTATUS(verify) != 0){
                   return false;
               }
