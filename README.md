@@ -36,7 +36,7 @@ If the command test ­e /test/file/path evaluates to True, then print display th
 And likewise, if the above command evaluates to False, then print False in the same manner
 (False)
 
-Additionally, your test command should work with the connectors && and || that you have written previously in assignment 2, as well as all other functionality from assignment 2.
+Additionally, your test command should work with the connectors && and || 
 
 $ test -e /test/file/path && echo “path exists”
 
