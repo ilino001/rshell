@@ -24,9 +24,13 @@ Additionally, your rshell should allow the user to use the symbolic version of t
 $ [ -e test/file/path ]
 You command should also allow the user to run tests using the following flags
 
+
 -e checks if the file/directory exists
+
 -f checks if the file/directory exists and is a regular file
+
 -d checks if the file/directory exists and is a directory
+
 
 If a user does not specify a flag, then the -e functionality will be used by default.
 You will also add an extra feature that the test command currently does not have. Your test command will print out to the terminal if it evaluated to True or False
