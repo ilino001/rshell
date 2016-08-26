@@ -1,24 +1,62 @@
-#ifndef _CONNECTOR_H_
-#define _CONNECTOR_H_
+#ifndef _CONNECTOR_H
+#define _CONNECTOR_H
 
-#include "Base.h"
+#include "Base.h" 
 
-class Connector: public Base {
-    protected:
-        //left and right child 
-        Base* left;
-        Base* right;
+//enum works similar to a boolean type 
+enum Status {works, fails, another}; 
+
+class Connector : public Base {
+    private: 
+        Base *left; 
+        Base *right; 
+        Status s; 
     public:
-        //sets left and right default to NULl 
-        Connector() {
-            left = NULL;
+    
+        //constructors, sets left and right to NULL  
+        Connector() : Base() {
+            left = NULL; 
             right = NULL; 
         }
-        //sets parameters to left and right children 
-        Connector(Base *l, Base *r) {
-            left = l; 
-            right = l; 
+        
+        //takes in a type status 
+        Connector(Status st) {
+            s = st; 
         }
-        virtual bool execute(int child, int parent) = 0;
-}; 
+        
+        //constructor, takes in base left, right, and status 
+        Connector(Base *l, Base* r, Status st) {
+            left = l; 
+            right = r; 
+            s = st; 
+        }
+        
+        //constructors that take in parameters left and right 
+        void Left(Base *l) {
+            left = l;
+        }
+        
+        void Right(Base *r) {
+            right = r; 
+        }
+        
+        //executes its children 
+        int execute() {
+            //executes left then right 
+            //left will always execute 
+                //therefore right will execute thereafter     
+            int execution = left->execute(); 
+            if (execution == 0 && s == works) {
+                execution = right->execute(); 
+            }
+        
+            else {
+                execution = right->execute(); 
+            }
+            return execution; 
+            
+        }
+  
+        
+};
 #endif 
