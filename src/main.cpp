@@ -25,8 +25,8 @@ int main() {
         Base* cmd;
         cmd = parser.parse(input);
         
-        // cmd->execute(); 
-        //  delete cmd;
+         cmd->execute(); 
+          delete cmd;
          
     }
     
