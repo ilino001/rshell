@@ -25,8 +25,8 @@ class Command : public Base {
         Command(char** argvs) {
             this->argv = argvs; 
         }
-        
-        //Command(char** argvs) : argv(argvs) { };
+    
+      
     
         int execute() {
             //initalizing begin to equal first argument value 
@@ -70,7 +70,7 @@ class Command : public Base {
                 else if (buffer.st_mode & S_IFDIR) {
         
                     //if it's the flags -e or -d 
-                    if (flag_num == 0 || flag_num == 2) {
+                    if (flag == "-e" || flag == "-d") {
                         std::cout << "(True)\n"; 
                         return 0; 
                     }
@@ -82,7 +82,7 @@ class Command : public Base {
                 }
             
                 else {
-                    if (flag_num == 1 || flag_num == 0) {
+                    if (flag == "-f" || flag == "-e") {
                         std::cout << "(True)\n"; 
                         return 0; 
                     }
@@ -110,11 +110,7 @@ class Command : public Base {
             }
             wait(&execution);
             return execution; 
-            
-            
-            
-            
-            
+        
         }; 
         virtual void Left(Base *left); 
         virtual void Right(Base *right); 

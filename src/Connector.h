@@ -56,13 +56,7 @@ class Connector : public Base {
             return execution; 
             
         }
-        
-        // call destructor 
-        ~Connector()
-        {
-            delete left;
-            delete right;
-        }
+  
         
 };
 #endif 
