@@ -16,17 +16,17 @@ int main() {
   
     for ( ; ; )
     {
-         cout << "> ";
-         string str;
-         getline(cin, str); 
+        cout << "> ";
+        string str;
+        getline(cin, str); 
         
         stringstream input(str);
          
         Base* cmd;
         cmd = parser.parse(input);
         
-         cmd->execute(); 
-          delete cmd;
+        cmd->execute(); 
+        delete cmd;
          
     }
     
