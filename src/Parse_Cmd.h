@@ -16,14 +16,15 @@ using namespace std;
 #include "Precedence.h"
 
 
-class Parse_Cmd { 
+class Parse_Cmd 
+{ 
     public: 
         //constructor 
         Parse_Cmd() {};
         
         //constructor that painputes in stringstream 
             //to input each char that is being painputed in 
-        Base* parse(std::stringstream &input, Base* v = 0) {
+        Base* parse(std::stringstream &input, Base* v = 0)// {
             
             string line; 
             std::vector<string> command_list; //vector to store the commands by the user 
@@ -31,9 +32,11 @@ class Parse_Cmd {
             Base* pre_counter = 0; 
             
             //as it is taking user input 
-            while (input >> line) {
+            while (input >> line) 
+            {
                 //if the first 
-                if (line.at(0) == '(') {
+                if (line.at(0) == '(') 
+                {
                     line = line.substr(1); 
                     int num_predence = 1; 
                     char c; 
@@ -43,20 +46,25 @@ class Parse_Cmd {
                     stringstream output(line);  
                     pre_counter = new Precedence(this->parse(output)); 
                 }
-                else {
+                else 
+                {
                     bool is_comment = false; 
-                    for (unsigned i = 0; i < line.size(); ++i) {
-                        if(line.at(i) == '#') {
+                    for (unsigned i = 0; i < line.size(); ++i) 
+                    {
+                        if(line.at(i) == '#') 
+                        {
                             line = line.substr(0, i); 
                             is_comment = true; 
                         }
                     }
-                    if (is_comment) {
+                    if (is_comment) 
+                    {
                         break; 
                     }
                 }
                 
-                if (line.at(line.size() - 1) == ';') {
+                if (line.at(line.size() - 1) == ';') 
+                {
 
                     curr_status = another; 
                     command_list.push_back(line.substr(0, line.size() - 1)); 
@@ -64,30 +72,38 @@ class Parse_Cmd {
                 }
                 
                 // look for || in string line
-                else if (strcmp(line.c_str(), "||") == 0) {
+                else if (strcmp(line.c_str(), "||") == 0) 
+                {
                     
                     curr_status = fails; 
                     break; 
                 }
                 
                 // look for && in string line
-                else if (strcmp(line.c_str(), "&&") == 0) {
+                else if (strcmp(line.c_str(), "&&") == 0) 
+                {
                     
                     curr_status = works; 
                     break; 
                 }
-                
-                command_list.push_back(line);
-            }
+                else
+                {
+                    command_list.push_back(line);
+                }
+
+            } // end of while loop
             
             char** argvs = new char*[command_list.size() + 1]; 
-            for (unsigned int i = 0; i < command_list.size(); ++ i) {
+
+            for (unsigned int i = 0; i < command_list.size(); ++ i) 
+            {
                 argvs[i] = new char[command_list.at(i).size() + 1]; 
                 strcpy(argvs[i], command_list.at(i).c_str()); 
             }
+
             argvs[command_list.size()] = 0; 
        
             
-        }
+//        }
 };
 #endif 
