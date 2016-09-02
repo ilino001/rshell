@@ -24,7 +24,8 @@ class Parse_Cmd
         
         //constructor that painputes in stringstream 
             //to input each char that is being painputed in 
-        Base* parse(std::stringstream &input, Base* v = 0)// {
+        Base* parse(std::stringstream &input, Base* v = 0); 
+    {
             
             string line; 
             std::vector<string> command_list; //vector to store the commands by the user 
@@ -101,9 +102,8 @@ class Parse_Cmd
                 strcpy(argvs[i], command_list.at(i).c_str()); 
             }
 
-            argvs[command_list.size()] = 0; 
-       
-            
-//        }
+            argvs[command_list.size()] = 0;    
+    }
+
 };
 #endif 
