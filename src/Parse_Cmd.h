@@ -28,7 +28,10 @@ class Parse_Cmd
             
             std::string line;
             std::vector<std::string> command_list; //vector to store the commands by the user
-            int curr_status = -1; //keeps track of the status of the commands 
+           // int curr_status = -1; //keeps track of the status of the commands
+            
+            int Status = -1;
+            
             Base* pre_counter = 0; 
             
             //as it is taking user input 
@@ -97,8 +100,7 @@ class Parse_Cmd
                 
                 if (line.at(line.size() - 1) == ';') 
                 {
-
-                    curr_status = another; 
+                    Status = another;
                     command_list.push_back(line.substr(0, line.size() - 1)); 
                     break; 
                 }
@@ -106,16 +108,14 @@ class Parse_Cmd
                 // look for || in string line
                 else if (strcmp(line.c_str(), "||") == 0) 
                 {
-                    
-                    curr_status = fails; 
+                    Status = fails;
                     break; 
                 }
                 
                 // look for && in string line
                 else if (strcmp(line.c_str(), "&&") == 0) 
                 {
-                    
-                    curr_status = works; 
+                    Status = works;
                     break; 
                 }
                 else
@@ -134,7 +134,35 @@ class Parse_Cmd
             }
 
             argvs[command_list.size()] = 0;
-        }
+            
+            
+            Base* tempCmd = (pre_counter == 0) ? new Command(argvs) : pre_counter; //create new command with arguments
+            
+            if(v == 0) //no connector
+            {
+                v = tempCmd;
+            }
+            else
+            {
+                v->Right((tempCmd)); //place new command in tree if not first command
+            }
+            if(Status == -1) //base case return if there's no next connector
+            {
+                return v;
+            }
+            else
+            {
+            
+                //recursively construct commands from the rest of the line
+      //          Base* newCon = new Connector((Status) );//Status);
+                Base* newCon = new Connector(Status (Status));// Status;
+                newCon->Left(v);
+                v = newCon;
+                return parse(input, v);
+            }
+            
+            
+        };
 
 };
 #endif 

@@ -17,6 +17,7 @@ int main()
     cout << "\nwelcome to rshell!" << endl;
   
     for (;;)
+    //while(true)
     {
         cout << "> ";
         string str;
@@ -28,7 +29,7 @@ int main()
         cmd = parser.parse(input);
         
         cmd->execute(); 
-//      delete cmd;
+        delete cmd;
          
     }
     

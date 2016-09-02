@@ -10,16 +10,20 @@ class Connector : public Base {
     private: 
         Base *left; 
         Base *right; 
-        Status s; 
+        Status s;
     public:
-    
-        //constructors, sets left and right to NULL  
-        Connector() : Base()
+//    Connector() {};
+//    Connector(int) {};
+//    Connector(Status t) : s(t) {}; //constructor
+//    Connector(Base* l, Base* r, Status t) : left(l), right(r), s(t) { };
+//   
+        //constructors, sets left and right to NULL
+        Connector(int) : Base()
         {
-            left = NULL; 
-            right = NULL; 
+            left = NULL;
+            right = NULL;
         }
-        
+    
         //takes in a type status 
         Connector(Status st)
         {
@@ -33,7 +37,7 @@ class Connector : public Base {
             right = r; 
             s = st; 
         }
-        
+    
         //constructors that take in parameters left and right 
         void Left(Base *l)
         {
