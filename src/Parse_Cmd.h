@@ -7,14 +7,13 @@
 #include <string> 
 #include <cstring> 
 
-using namespace std; 
+//using namespace std;
 
 //uses all files 
 #include "Base.h"
 #include "Command.h" 
 #include "Connector.h"
 #include "Precedence.h"
-
 
 class Parse_Cmd 
 { 
@@ -24,27 +23,59 @@ class Parse_Cmd
         
         //constructor that painputes in stringstream 
             //to input each char that is being painputed in 
-        Base* parse(std::stringstream &input, Base* v = 0); 
-    {
+        Base* parse(std::stringstream &input, Base* v = 0)
+        {
             
-            string line; 
-            std::vector<string> command_list; //vector to store the commands by the user 
+            std::string line;
+            std::vector<std::string> command_list; //vector to store the commands by the user
             int curr_status = -1; //keeps track of the status of the commands 
             Base* pre_counter = 0; 
             
             //as it is taking user input 
             while (input >> line) 
             {
-                //if the first 
-                if (line.at(0) == '(') 
+                
+                if (line.at(0) == '(')
                 {
                     line = line.substr(1); 
-                    int num_predence = 1; 
-                    char c; 
-                    bool inside_quotes = false; 
+                    int num_predence = 1;
+                    char c;
+                    bool inside_quotes = false;
+                    
+                    while ( (num_predence > 0) )
+                    {
+                        if (!(input.get(c)))
+                        {
+                            std::cout << "> ";
+                            std::string tempString;
+                            std::string space = " ";
+                            getline(std::cin, tempString);
+                           
+                            tempString = space + tempString;
+                            input.str(tempString);
+                            input.clear();
+                            c = input.get();
+                        }
+                        if (c == '"')
+                        {
+                            inside_quotes = !inside_quotes; //toggle quotes
+                        }
+                        else if (c == '(' && !inside_quotes)
+                        {
+                            num_predence++;
+                        }
+                        else if (c == ')' && !inside_quotes)
+                        {
+                            num_predence--;
+                        }
+                        
+                        line += c;
+                        
+                    }
+                    
                     
                     line = line.substr(0, line.size() - 1); 
-                    stringstream output(line);  
+                    std::stringstream output(line);
                     pre_counter = new Precedence(this->parse(output)); 
                 }
                 else 
@@ -102,8 +133,8 @@ class Parse_Cmd
                 strcpy(argvs[i], command_list.at(i).c_str()); 
             }
 
-            argvs[command_list.size()] = 0;    
-    }
+            argvs[command_list.size()] = 0;
+        }
 
 };
 #endif 
