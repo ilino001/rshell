@@ -10,5 +10,4 @@ main:
 
 clean:
 	rm -rf ./bin
-	rm a.out
  

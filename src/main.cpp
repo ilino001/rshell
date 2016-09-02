@@ -16,17 +16,28 @@ int main() {
   
     for ( ; ; )
     {
+<<<<<<< HEAD
         cout << "> ";
         string str;
         getline(cin, str); 
+=======
+         cout << "> ";
+         string str;
+         getline(cin, str); 
+>>>>>>> ca86d66754e257184db49770dac4c856efb094dc
         
         stringstream input(str);
          
         Base* cmd;
         cmd = parser.parse(input);
         
+<<<<<<< HEAD
         cmd->execute(); 
         delete cmd;
+=======
+         cmd->execute(); 
+          delete cmd;
+>>>>>>> ca86d66754e257184db49770dac4c856efb094dc
          
     }
     
