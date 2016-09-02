@@ -28,7 +28,7 @@ int main()
         cmd = parser.parse(input);
         
         cmd->execute(); 
-//        delete cmd;
+//      delete cmd;
          
     }
     
