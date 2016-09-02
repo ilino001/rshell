@@ -1,6 +1,4 @@
 # Basic Command rshell in C++
-##### Collaborators: Tiffany Cedeno, Isaac Lino, Nathaniel Song
-## A command shell called rshell in C++. 
 
 It performs with the following steps:
 
