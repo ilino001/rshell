@@ -8,7 +8,9 @@
 #include "Parse_Cmd.h"
 
 using namespace std;
-int main() {
+
+int main() 
+{
     
     Parse_Cmd parser;
 
