@@ -42,7 +42,7 @@ class Command : public Base {
             //if it's test, the next argument value will have the following flags: 
                 //-e, -f, -d 
             else if (begin == "test" || begin == "[") {
-                int flag_num = 0; 
+//                int flag_num = 0; 
                 int counter = 1;
                 
                 //if flag matches either flags, increment counter 
@@ -52,12 +52,12 @@ class Command : public Base {
                 }
                 
                 else if (flag == "-f"){
-                    flag_num = 1; 
+//                    flag_num = 1; 
                     ++counter; 
                 }
                 
                 else if (flag == "-d"){
-                    flag_num = 2; 
+//                    flag_num = 2; 
                     ++counter; 
                 }
                 struct stat buffer;
