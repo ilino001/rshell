@@ -21,7 +21,8 @@ class Command : public Base {
         //constructors 
         Command() : Base() {} 
         
-        //constructor that takes in the arguments 
+        //constructor that takes in the arguments
+    //    Command (char ** argv) : argv(argv) {}; //constructor with arguments
         Command(char** argvs) {
             this->argv = argvs; 
         }
@@ -104,15 +105,25 @@ class Command : public Base {
                 exit(exiting); 
             }
             
-            else {
-                std::cout << "fork() failed, cannot continue\n"; 
-                exit(1); 
-            }
+           // else {
+           //     std::cout << "fork() failed, cannot continue\n";
+           //     exit(1);
+           // }
             wait(&execution);
             return execution; 
         
         }; 
-        virtual void Left(Base *left); 
-        virtual void Right(Base *right); 
+     void Left(Base *left) {};
+     void Right(Base *right) {};
+    
+    
+    ~Command() {
+        int argNum = 0; //deallocate arguments, they were all dynamically allocated
+        while (argv[argNum] != 0) {
+            delete[] argv[argNum];
+            argNum++;
+        }
+        delete[] argv;
+    };
 };
-#endif 
+#endif
