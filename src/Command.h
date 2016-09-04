@@ -22,7 +22,7 @@ class Command : public Base {
         Command() : Base() {} 
         
         //constructor that takes in the arguments
-    //    Command (char ** argv) : argv(argv) {}; //constructor with arguments
+//        Command (char ** argvs) : argv(argvs) {}; //constructor with arguments
         Command(char** argvs) {
             this->argv = argvs; 
         }
