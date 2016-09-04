@@ -35,4 +35,4 @@ class Precedence : public Base {
         // virtual void Right(Base *right); 
         // virtual void Left(Base *left); 
 };
-#endif 
+#endif /* PRECEDENCE_H */

@@ -126,4 +126,4 @@ class Command : public Base {
         delete[] argv;
     };
 };
-#endif
+#endif /* COMMAND_H */

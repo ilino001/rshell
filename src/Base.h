@@ -13,4 +13,4 @@ class Base {
         virtual void Right(Base *right) = 0;
         virtual ~Base() {};
 }; 
-#endif 
+#endif /* BASE_H */
