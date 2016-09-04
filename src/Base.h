@@ -1,5 +1,5 @@
-#ifndef _BASE_H_
-#define _BASE_H_
+#ifndef BASE_H
+#define BASE_H
 
 class Base {
     public: 

@@ -1,5 +1,5 @@
-#ifndef _CONNECTOR_H
-#define _CONNECTOR_H
+#ifndef CONNECTOR_H
+#define CONNECTOR_H
 
 #include "Base.h" 
 

@@ -1,5 +1,5 @@
-#ifndef _PRECEDENCE_H_
-#define _PRECEDENCE_H_
+#ifndef PRECEDENCE_H
+#define PRECEDENCE_H
 
 #include "Base.h"
 
