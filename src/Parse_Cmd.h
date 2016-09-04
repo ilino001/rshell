@@ -125,7 +125,7 @@ class Parse_Cmd
 
             } // end of while loop
             
-            char** argvs = new char*[command_list.size() + 1]; 
+            char** argvs = new char*[command_list.size() + 1];
 
             for (unsigned int i = 0; i < command_list.size(); ++ i) 
             {
@@ -138,6 +138,7 @@ class Parse_Cmd
             
             Base* tempCmd = (pre_counter == 0) ? new Command(argvs) : pre_counter; //create new command with arguments
             
+
             if(v == 0) //no connector
             {
                 v = tempCmd;
@@ -154,14 +155,14 @@ class Parse_Cmd
             {
             
                 //recursively construct commands from the rest of the line
-      //          Base* newCon = new Connector((Status) );//Status);
-                Base* newCon = new Connector(Status (Status));// Status;
+                Base* newCon = new Connector(Status);//Status);
+              //  Base* newCon = new Connector((Status) Status);// Status;
                 newCon->Left(v);
                 v = newCon;
                 return parse(input, v);
             }
             
-            
+            return parse(input, v);
         };
 
 };
