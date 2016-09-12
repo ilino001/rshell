@@ -36,7 +36,8 @@ class Command : public Base {
         
             //if user calls exit, exit immediately 
             if (begin == "exit") { 
-                exit(0); 
+              std::cout << "I am invoking exit...\n";
+                 exit(1); 
             }
             
             //if it's test, the next argument value will have the following flags: 
